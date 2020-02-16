@@ -19,8 +19,7 @@
     </nav>
     <button class="button is-link" @click="createTodo">ADD</button>
     <ul id="Furikaeri">
-      <li v-for="furikaeri in furikaeris">
-        <span class="todo-wrapper">{{ furikaeri.name }}</span>
+      <li v-for="(value, key) in furikaeris" :key="key"><span class="todo-wrapper">{{ furikaeri.name }}</span>
       </li>
     </ul>
   </div>
