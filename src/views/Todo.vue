@@ -10,7 +10,7 @@
     </div>
     <div class="level-item has-text-centered">
       <section>
-        <div class="field" v-for="task in tasks" v-bind:data="task" v-bind:key="task.text">
+        <div class="field" v-for="task in tasks" v-bind:data="task" v-bind:key="task.message">
           <b-checkbox v-model="task.done">
             <span v-bind:class="{'done': task.done}">{{ task.message }}</span>
           </b-checkbox>

@@ -14,8 +14,17 @@
       <div class="level">
         <div class="level-item has-text-centered">
           <div>
-            <b-field label="Description">
+            <b-field label="Content">
               <b-input v-model="input.description"></b-input>
+            </b-field>
+          </div>
+        </div>
+      </div>
+      <div class="point">
+        <div class="level-item has-text-centered">
+          <div>
+            <b-field label="Point">
+              <b-input v-model="input.point"></b-input>
             </b-field>
           </div>
         </div>
@@ -24,12 +33,35 @@
     <div class="field">
       <button class="button is-link" @click="createTodo">ADD</button>
     </div>
-    <div class="field">
-      <ul id="furikaeri" class="level-item has-text-centered">
-        <li v-for="(value, key) in furikaeris" :key="key">
-          <span class="todo-wrapper">{{ `${value.name}: ${value.description}`}}</span>
-        </li>
-      </ul>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Result</h1>
+        </div>
+      </div>
+    </section>
+    <div class="content" style="margin-top:20px;">
+      <div class="container content has-text-justified">
+        <section>
+          <div
+            class="field"
+            v-for="furikaeri in furikaeris"
+            v-bind:data="furikaeri"
+            v-bind:key="furikaeri.name"
+          >
+            <div class="columns">
+              <div class="column is-1">{{ furikaeri.name }}</div>
+              <div class="column is-1">{{ furikaeri.description }}</div>
+              <div class="column is-1">{{ furikaeri.point }}</div>
+            </div>
+            <!-- <b-field v-model="furikaeri.done">
+              <span
+                style="white-space:pre-wrap;"
+              >{{ furikaeri.name }}:&nbsp;&nbsp;&nbsp;{{ furikaeri.description }}</span>
+            </b-field> -->
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
